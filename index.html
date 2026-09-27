@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Un paso a la vez: convierte una tarea grande en un micro-paso accionable.">
+  <title>Un paso a la vez</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section id="startScreen" class="card">
+      <div class="eyebrow">UN PASO A LA VEZ</div>
+      <h1>Empieza por algo pequeño.</h1>
+      <p class="intro">Cuéntame qué necesitas hacer y recibirás un solo paso para arrancar.</p>
+
+      <label for="taskInput">¿Qué necesitas hacer?</label>
+      <textarea id="taskInput" maxlength="1000" placeholder="Por ejemplo: organizar mi habitación..."></textarea>
+      <div class="character-count"><span id="charCount">0</span>/1000</div>
+
+      <button id="breakdownButton" class="primary">Desglosar →</button>
+      <p id="startError" class="error hidden" role="alert"></p>
+    </section>
+
+    <section id="waitingScreen" class="card hidden">
+      <div class="loader" aria-hidden="true"></div>
+      <h2>Preparando tu primer paso</h2>
+      <p>Estamos convirtiendo tu tarea en una acción pequeña.</p>
+    </section>
+
+    <section id="stepScreen" class="card hidden">
+      <div class="eyebrow">AHORA</div>
+      <h2 id="microStep"></h2>
+
+      <button id="showTaskButton" class="link-button" type="button">👁 Ver tarea completa</button>
+      <p id="fullTask" class="full-task hidden"></p>
+
+      <button id="startButton" class="primary">Comenzar</button>
+    </section>
+
+    <section id="workingScreen" class="card hidden">
+      <div class="eyebrow">EN PROGRESO</div>
+      <h2 id="workingStep"></h2>
+      <div id="timer">02:00</div>
+
+      <button id="doneButton" class="primary">✓ Hecho</button>
+      <button id="restartButton" class="secondary">Volver a comenzar</button>
+    </section>
+
+    <section id="completedScreen" class="card hidden">
+      <div class="success-icon">✓</div>
+      <h2>Paso terminado</h2>
+      <p>¿Te ayudó a arrancar?</p>
+
+      <div class="feedback-row">
+        <button class="feedback-button" data-feedback="yes">👍 Sí</button>
+        <button class="feedback-button" data-feedback="no">👎 No</button>
+      </div>
+
+      <button id="nextStepButton" class="primary">Siguiente paso →</button>
+      <p id="nextHint" class="muted"></p>
+    </section>
+
+    <section id="finishedScreen" class="card hidden">
+      <div class="success-icon">🎉</div>
+      <h2>Muchas gracias por probarla.</h2>
+      <p>Has llegado al final de esta primera experiencia. Tu participación nos ayuda a mejorarla.</p>
+      <button id="newTaskButton" class="primary">Nueva tarea</button>
+    </section>
+  </main>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
